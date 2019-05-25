@@ -31,10 +31,12 @@
         {
             StringBuilder sb = new StringBuilder();
 
+            sb.Append(Timestamp.ToString(Format));
+            sb.Append("\t");
+
             if (this.Text.Length > 0)
             {
                 sb.Append(this.Text);
-                sb.Append(". ");
             }
 
             sb.Append(this.CreateLineText());
@@ -58,9 +60,14 @@
         public string Text { get; set; }
 
         /// <summary>
-        /// The Timestamp is initialized when the log is added. Th
+        /// The Timestamp is initialized when the log is added.
         /// </summary>
         public virtual DateTime Timestamp { get; set; }
+
+        /// <summary>
+        /// Timestamp format output
+        /// </summary>
+        public virtual string Format { get; set; } = "yyyy-MM-dd HH:mm:ss";
   
 
         #endregion
